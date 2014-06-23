@@ -1,0 +1,10 @@
+{
+  "generator-backbone": {
+    "appPath": "app",
+    "appName": "Decidedly",
+    "coffee": false,
+    "testFramework": "mocha",
+    "templateFramework": "lodash",
+    "compassBootstrap": true
+  }
+}
