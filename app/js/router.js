@@ -4,14 +4,17 @@ define([
     Backbone
 ) {
     return Backbone.Router.extend({
-    	initialize: function (options) {
+    	routes: {
+            '': 'viewPolls',
+            'polls': 'viewPolls',
+            'poll/:id': 'viewPoll',
+            '*notfound': 'viewError'
+        },
+
+        initialize: function (options) {
     		var that = this;
 
     		that.viewModel = options.viewModel;
-
-    		this.route(/^$/, 'polls', that.viewPolls);
-    		that.route(/^polls$/, 'polls', that.viewPolls);
-            that.route(/^poll\/(([0-9])+)+$/, 'poll', that.viewPoll);
 
             that.listenTo(that.viewModel, 'change:currentPage', that.updateUrl);
     	},
@@ -24,16 +27,19 @@ define([
     		this.viewModel.goToPage('poll', id);
     	},
 
+        viewError: function () {
+            this.viewModel.goToPage('error');  
+        },
+
     	updateUrl: function () {
     		var uri,
-    			currentPage = this.viewModel.get('currentPage'),
-    			id = '';
+    			currentPage = this.viewModel.get('currentPage')
 
-    		if(currentPage.id) {
-    			id = currentPage.id;
-    		}
+            if(currentPage.name === 'error') {
+                return;
+            }
 
-    		uri = currentPage.name + (id ? '/' + id : '');
+    		uri = currentPage.name + (currentPage.id ? '/' + currentPage.id : '');
 
     		this.navigate(uri);
     	}

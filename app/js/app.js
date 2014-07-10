@@ -51,30 +51,27 @@ define([
                 that = this,
                 requestedPage = that.viewModel.get('currentPage');
             
+            if (!requestedPage) {
+                return;
+            }
+
+            requestedPageView = that.childViews.findByCustom(requestedPage.name);
+
+            if (!requestedPageView) {
+                requestedPageView = that.childViews.findByCustom('error');
+            }
+
+            if(requestedPageView.rendered === false) {
+                requestedPageView.render();
+            }
+
             if (that.currentPageView) {
                 that.currentPageView.$el.hide();
             }
 
-            if(requestedPage) {
-                requestedPageView = that.childViews.findByCustom(requestedPage.name);
+            requestedPageView.$el.show();
 
-                if (requestedPageView) {
-                    if(requestedPageView.rendered === false) {
-                        requestedPageView.render();
-                    }
-
-                    requestedPageView.$el.show();
-                }
-
-                that.currentPageView = requestedPageView;
-            }
-            else {
-                errorView = that.childViews.findByCustom('error');
-
-                errorView.render();
-
-                that.currentPageView = errorView;
-            }   
+            that.currentPageView = requestedPageView;
         }
     });
 });
