@@ -1,0 +1,10 @@
+<ul class="polls">
+	<% _.each(polls, function (poll) { %>
+		<li id="<%= poll.id %>">
+			<img class="user-avatar" src="<%= poll.avatar %>"/>
+			<div class="title"><%= poll.title %></div>
+			<div class="user-name">Created by: <%= poll.username %></div>
+			<div class="deadline">Voting ends: <%= poll.deadline %></div>
+		</li>
+	<% }); %>
+</ul>

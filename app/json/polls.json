@@ -1,0 +1,142 @@
+[{
+	"id": 1,
+	"title": "First Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+},{
+	"id": 2,
+	"title": "Second Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+},{
+	"id": 3,
+	"title": "Third Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+},{
+	"id": 4,
+	"title": "Forth Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+},{
+	"id": 5,
+	"title": "Fifth Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+},{
+	"id": 6,
+	"title": "Sixth Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+},{
+	"id": 7,
+	"title": "Seventh Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+},{
+	"id": 8,
+	"title": "Eighth Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+},{
+	"id": 9,
+	"title": "Ninth Poll",
+	"description": "Vote for one of them already mother fucker!",
+	"choices": [
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/",
+		"http://lorempixel.com/400/200/"
+	],
+	"user": {
+		"id": 1,
+		"username": "RandyIsDaBomb",
+		"avatar": "http://www.placecage.com/c/75/75"
+	},
+	"startDate": "1404469751",
+	"endDate": "1410776951"
+}]
