@@ -35,8 +35,7 @@ define([
                 templateData.polls.push({
                     id: poll.get('id'),
                     title: poll.get('title'),
-                    avatar: poll.get('user').avatar,
-                    username: poll.get('user').username,
+                    creator: poll.get('creator'),
                     deadline: deadline.toDateString()
                 });
             });    

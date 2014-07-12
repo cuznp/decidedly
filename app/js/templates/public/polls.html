@@ -1,9 +1,9 @@
 <ul class="polls">
 	<% _.each(polls, function (poll) { %>
 		<li id="<%= poll.id %>">
-			<img class="user-avatar" src="<%= poll.avatar %>"/>
+			<img class="creator-avatar" src="<%= poll.creator.avatar %>"/>
 			<div class="title"><%= poll.title %></div>
-			<div class="user-name">Created by: <%= poll.username %></div>
+			<div class="creator-username">Created by: <%= poll.creator.username %></div>
 			<div class="deadline">Voting ends: <%= poll.deadline %></div>
 		</li>
 	<% }); %>

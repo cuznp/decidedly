@@ -1,7 +1,9 @@
 define([
+    'module',
     'backbone',
     'collections/polls'
 ], function (
+    module,
     Backbone,
     PollsCollection
 ) {
@@ -16,11 +18,11 @@ define([
     		};
 
     		this.set('promises', promises);
+
+            this.set('connectionIp', module.config().connectionIp);
     	},
 
         goToPage: function (name, id) {
-            var uri = name + (id ? '/' + id : '');
-
             this.set('currentPage', {
                 name: name,
                 id: id
