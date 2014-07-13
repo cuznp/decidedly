@@ -2,8 +2,8 @@
 	<% _.each(polls, function (poll) { %>
 		<li id="<%= poll.id %>">
 			<div class="item-header">
-				<img class="user-avatar" src="<%= poll.avatar %>"/>
-				<div class="user-name"><%= poll.username %></div>
+				<img class="user-avatar" src="<%= poll.creator.avatar %>"/>
+				<div class="user-name"><%= poll.creator.username %></div>
 			</div>
 			<div class="title"><%= poll.title %></div>
 			<div class="deadline">Voting ends: <%= poll.deadline %></div>
