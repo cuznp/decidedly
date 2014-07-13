@@ -1,14 +1,10 @@
-
-
-/* TODO delte? */
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
+/* Page structure START */
+html, body, #ui-wrapper {
+	height: 100%;
 }
 
-/* Page structure START */
-body {
-    background: #f1f5f7;
+html, body {
+    background-color: #f1f5f7;
 }
 
 #ui-header {
@@ -17,6 +13,7 @@ body {
 	height: 88px;
 	top: 0;
 	position: fixed;
+	z-index: 1000;
 }
 
 #ui-header h1 {
@@ -79,7 +76,7 @@ body {
 /* Search Bar END */
 
 #polls-wrapper, .poll-item, #error {
-	margin: 10px;
+	margin: 10px 10px 54px 10px;
 }
 /* Page structure END */
 
@@ -143,7 +140,6 @@ img.user-avatar {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-
 }
 
 span.hashtag, span.tag {
@@ -160,6 +156,7 @@ span.hashtag, span.tag {
 	position: fixed;
 	top: 88px;
 	margin-bottom: 10px;
+	z-index: 1000;
 }
 /* General reusable items END */
 
@@ -167,10 +164,6 @@ span.hashtag, span.tag {
 #poll button {
 	background-color: #1c69aa;
 	color: white;
-}
-
-#poll h2 {
-	margin-top: 42px 0 0 0;
 }
 
 #poll .options {
@@ -183,7 +176,6 @@ span.hashtag, span.tag {
 
 #poll .options li {
 	display: inline-block;
-	margin-right: 10px;
 	cursor: pointer;
 	opacity: 0.5;
 }
@@ -206,7 +198,13 @@ span.hashtag, span.tag {
 	box-shadow: 0px 0px 25px #b2b3e0;
 }
 
-#poll .options li:last-child {
-	margin-right: 0;
+@media only screen and (min-width : 780px) {
+	#poll .options li {
+		margin-right: 10px;
+	}
+
+	#poll .options li:last-child {
+		margin-right: 0;
+	}
 }
 /* Specific poll instance END */
