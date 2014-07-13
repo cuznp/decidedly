@@ -1,12 +1,11 @@
-<div>Voting ends on: <%= deadline %></div>
-<h2><%= title %><h1>
-<h4><%= description %></h4>
-<ol class="choices">
-	<% _.each(choices, function (choice) { %>
-		<li id="<%= choice.id %>">
-			<img src="<%= choice.src %>"/>
-			<caption><%= choice.title %></caption>
-		</li>
-	<% }); %>
-</ol>
-<button>Submit</button>
+<div class="sticky-header">Voting ends on: <%= deadline %></div>
+<div class="poll-item">
+	<h2><%= title %><h1>
+	<h4><%= description %></h4>
+	<ol class="options">
+		<% _.each(choices, function (url) { %>
+			<li><img src="<%= url %>"/></li>
+		<% }); %>
+	</ol>
+	<button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+</div>
