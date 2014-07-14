@@ -15,15 +15,12 @@ define([
     	},
 
     	initialize: function () {
-    		var that = this;
+    		var poll,
+                that = this;
 
     		BaseView.prototype.initialize.apply(that, arguments);
 
-    		that.listenTo(that.viewModel, 'change:currentPage', function () {
-    			if (that.viewModel.get('currentPage').name === 'poll') {
-    				that.render();
-    			}
-    		});
+    		that.listenTo(that.viewModel, 'change:currentPage', that.handleChangeOfModel);
     	},
 
     	templateData: function () {
@@ -37,24 +34,26 @@ define([
             return templateData;        
         },
 
-    	render: function () {
-			var that = this,
-				id  = that.viewModel.get('currentPage').id;
-			
-			$.when(
-				// TODO: Remake this function to use endpoint
-				// that.model.fetch()
-				
-			).done(function () {
-				that.model = that.viewModel.get('polls').findWhere({
-					id: parseInt(id)
-				});
+        handleChangeOfModel: function () {
+            var that = this,
+                currentPage = that.viewModel.get('currentPage');
 
-				BaseView.prototype.render.apply(that, arguments);	
-			});
+            if (currentPage.name === 'poll') {
+                poll = that.viewModel.get('polls').findWhere({
+                    id: currentPage.id
+                });
 
-			return that;
-    	},
+                if (poll) {
+                    that.model = poll;
+
+                    $.when(
+                        that.model.fetch()
+                    ).done(function () {
+                        that.render(); 
+                    });    
+                }
+            }
+        },
 
     	submitVote: function () {
     		//TODO: refactor to actually work. Placeholder atm

@@ -6,7 +6,7 @@ define([
     PollModel
 ) {
     return Backbone.Collection.extend({
-    	url: 'json/polls.json',
+    	url: 'api-polls.php',
 
     	model: PollModel
     });

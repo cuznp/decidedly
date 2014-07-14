@@ -24,7 +24,7 @@ define([
     	},
 
     	viewPoll: function (id) {
-    		this.viewModel.goToPage('poll', id);
+    		this.viewModel.goToPage('poll', parseInt(id));
     	},
 
         viewError: function () {
