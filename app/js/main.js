@@ -2,15 +2,10 @@
 'use strict';
 
 // TODO: Pass in connecton IP via Rails
-var ip = '172.7.16.' + (Math.floor(Math.random() * (40 - 30 + 1)) + 30);
+window.connectionIp = '172.7.16.' + (Math.floor(Math.random() * (40 - 30 + 1)) + 30);
 
 require.config({
     baseUrl: 'js',
-    config: {
-        'view-model' : {
-            'connectionIp': ip
-        }
-    },
     shim: {
         underscore: {
             exports: '_'

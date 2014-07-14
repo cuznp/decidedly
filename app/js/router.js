@@ -31,9 +31,8 @@ define([
             this.viewModel.goToPage('error');  
         },
 
-    	updateUrl: function () {
-    		var uri,
-    			currentPage = this.viewModel.get('currentPage')
+    	updateUrl: function (viewModel, currentPage) {
+    		var uri;
 
             if(currentPage.name === 'error') {
                 return;

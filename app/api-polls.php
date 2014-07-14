@@ -237,11 +237,25 @@ class API {
 	}
 
 	private function formatModelAttributesForReturn($model) 
-	{
-		foreach ($model['results'] as &$result) {
-			$result['votedFor'] = in_array($this->ip, $result['votes']);
+	{	
+		$voted = false;
 
-			$result['votes'] = count($result['votes']);
+		foreach ($model['results'] as $result) {
+			if (in_array($this->ip, $result['votes'])) {
+				$voted = true;
+				
+				break;
+			}
+		}
+
+		if ($voted) {
+			foreach ($model['results'] as &$result) {
+				$result['votedFor'] = in_array($this->ip, $result['votes']);
+
+				$result['votes'] = count($result['votes']);
+			}	
+		} else {
+			$model['results'] = array();
 		}
 
 		return $model;

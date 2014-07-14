@@ -18,14 +18,12 @@ define([
     		};
 
     		this.set('promises', promises);
-
-            this.set('connectionIp', module.config().connectionIp);
     	},
 
         goToPage: function (name, id) {
             this.set('currentPage', {
                 name: name,
-                id: id
+                id: parseInt(id)
             });
         }
     });

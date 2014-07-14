@@ -11,7 +11,9 @@ define([
     	template: _(PollTemplate).template(),
 
     	events: {
-    		'click button': 'submitVote'
+            'click li': 'chooseOption',
+    		'click .cast-vote': 'castVote',
+            'click .back': 'backToPolls'
     	},
 
     	initialize: function () {
@@ -34,9 +36,24 @@ define([
             return templateData;        
         },
 
-        handleChangeOfModel: function () {
-            var that = this,
-                currentPage = that.viewModel.get('currentPage');
+        render: function () {
+            BaseView.prototype.render.apply(this, arguments);
+
+            this.updatePrimaryButton();
+
+            if (this.model.get('results').length) {
+                this.renderResults();
+            }
+
+            return this;
+        },
+
+        renderResults: function () {
+            // TODO: Implement rendering of results
+        },
+
+        handleChangeOfModel: function (viewModel, currentPage) {
+            var that = this;
 
             if (currentPage.name === 'poll') {
                 poll = that.viewModel.get('polls').findWhere({
@@ -55,9 +72,58 @@ define([
             }
         },
 
-    	submitVote: function () {
-    		//TODO: refactor to actually work. Placeholder atm
-    		this.viewModel.goToPage('polls');
+        updatePrimaryButton: function () {
+            var that = this;
+
+            that.$el.find('.cast-vote').toggle(that.model.get('results').length === 0);
+
+            that.$el.find('.back').toggle(that.model.get('results').length > 0);
+        },
+
+        backToPolls: function () {
+            this.viewModel.goToPage('polls');
+        },
+
+        chooseOption: function (event) {
+            var chosenOptionId = $(event.target.parentElement).attr('id');
+
+            this.$el.find('.options li').each(function () {
+                var $this = $(this);
+
+                $this.toggleClass('active', $this.attr('id') == chosenOptionId);
+            });
+
+            this.$el.find('.error').hide();
+
+            this.model.set('chosenOptionId', parseInt(chosenOptionId));
+        },
+
+    	castVote: function () {
+    		var that = this,
+                $votingErrorMessage = that.$el.find('.error');
+                url = '/api-polls.php?ip=' + window.connectionIp + '&action=vote&id=' + this.model.get('id') + '&choiceId=' +  this.model.get('chosenOptionId');
+
+            if (!that.model.has('chosenOptionId')) {
+                $votingErrorMessage.show();
+            } 
+            else {
+                $.ajax({
+                    url: url,
+                    success: function (response) {
+                        if (response.success) {
+                            $.when(
+                                that.model.fetch()
+                            ).done(function () {
+                                // TODO: Use that.renderResults() instead of render to just render the results to page
+                                that.render();
+                            })
+                        } 
+                        else {
+                            console.log('Error voting');
+                        }
+                    }
+                });
+            }
     	}
     });
 });

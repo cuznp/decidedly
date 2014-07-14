@@ -6,7 +6,9 @@ define([
     PollModel
 ) {
     return Backbone.Collection.extend({
-    	url: 'api-polls.php',
+    	url: function () {
+    		return 'api-polls.php?ip=' + window.connectionIp;
+    	},
 
     	model: PollModel
     });

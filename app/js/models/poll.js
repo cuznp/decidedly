@@ -5,11 +5,11 @@ define([
 ) {
     return Backbone.Model.extend({
     	url: function () {
-    		var getParams = '',
+    		var getParams = '?ip=' + window.connectionIp,
     			baseUrl = 'api-polls.php';
     		
     		if (this.id) {
-    			getParams += '?id=' + this.id;
+    			getParams += '&id=' + this.id;
     		}
 
     		return baseUrl + getParams;

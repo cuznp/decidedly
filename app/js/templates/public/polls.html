@@ -1,6 +1,7 @@
 <ul class="polls">
 	<% _.each(polls, function (poll) { %>
 		<li id="<%= poll.id %>">
+			<div class="click-target"></div>
 			<div class="item-header">
 				<img class="user-avatar" src="<%= poll.creator.avatar %>"/>
 				<div class="user-name"><%= poll.creator.username %></div>

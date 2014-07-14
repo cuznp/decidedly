@@ -11,7 +11,7 @@ define([
     	template: _(PollsTemplate).template(),
 
     	events: {
-    		'click .polls li': 'viewPoll'
+    		'click li': 'viewPoll'
     	},
 
     	initialize: function () {

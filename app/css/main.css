@@ -87,6 +87,7 @@ html, body {
 }
 
 .polls li {
+	position: relative;
 	min-height: 75px;
 	cursor: pointer;
 	border-bottom: 1px solid #b2b3e0;
@@ -132,6 +133,18 @@ html, body {
 	list-style: none;
 }
 
+.error {
+	color: red;
+}
+
+.click-target {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
 img.user-avatar {
 	width: 48px;
 	height: 48px;
@@ -175,6 +188,7 @@ span.hashtag, span.tag {
 }
 
 #poll .options li {
+	position: relative;
 	display: inline-block;
 	cursor: pointer;
 	opacity: 0.5;
