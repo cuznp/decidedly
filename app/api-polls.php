@@ -16,6 +16,7 @@ class API {
 	const OK = 200;
 	const ERROR = 500;
 	const NOT_FOUND = 404;
+	const NOT_ALLOWED = 405;
 	const BAD_REQUEST = 400;
 
 	public function __construct() 
@@ -93,7 +94,7 @@ class API {
 				break;
 
 			default:
-				$this->setResponseStatus(self::ERROR);
+				$this->setResponseStatus(self::NOT_ALLOWED);
 
 				break;
 		}
@@ -108,7 +109,8 @@ class API {
 	    $status = array(  
 	        200 => 'OK',
 	        400 => 'Bad Request',
-	        404 => 'Not Found',   
+	        404 => 'Not Found', 
+	        405 => 'Method Not Allowed',  
 	        500 => 'Internal Server Error'
 	    ); 
 
