@@ -2,7 +2,7 @@
 
 class API {
 
-	private $method;
+	private $action;
 	private $request;
 	private $response_body;
 
@@ -24,18 +24,29 @@ class API {
 
 		$this->response_body = array();
 
-		$this->method = $_SERVER['REQUEST_METHOD'];
-
 		$this->data_path = dirname(__FILE__) . '/json/polls.json';
+
+		$this->setServerAction();
 
 		$this->loadCollectionData();
 
 		$this->loadAndSanitizeRequestData();
 	}
 
-	public function processRequest() 
+	public function processRequest()
 	{
-		switch($this->method) {
+		if ($this->setIp()) {
+			$this->_processRequest();
+		} else {
+			$this->setResponseStatus(self::BAD_REQUEST);
+
+			$this->sendResponse();
+		}
+	}
+
+	private function _processRequest() 
+	{
+		switch($this->action) {
 			case 'GET':
 				if ($this->requestHasRequiredAttributes(array('id'))) {
 					$this->handleRequest__GET_model();	
@@ -72,6 +83,15 @@ class API {
 
 				break;
 
+			case 'VOTE':
+				if ($this->requestHasRequiredAttributes(array('id', 'choiceId'))) {
+					$this->handleRequest__VOTE();	
+				} else {
+					$this->setResponseStatus(self::BAD_REQUEST);
+				}
+
+				break;
+
 			default:
 				$this->setResponseStatus(self::ERROR);
 
@@ -96,13 +116,37 @@ class API {
 	    $this->message = $status[$this->code];
 	}
 
+	private function setIp() 
+	{
+		if (isset($_GET['ip'])) {
+			$this->ip = $_GET['ip'];
+
+			unset($_GET['ip']);
+
+			return true;
+		} 
+
+		return false;
+	}
+
+	private function setServerAction() 
+	{
+		if (isset($_GET['action'])) {
+			$this->action = strtoupper($_GET['action']);
+
+			unset($_GET['action']);
+		} else {
+			$this->action = $_SERVER['REQUEST_METHOD'];
+		}
+	}
+
 	private function loadAndSanitizeRequestData() 
 	{
-		$request_data = array();
-
-		if ($this->method == 'GET') {
+		if ($this->action == 'VOTE') {
 			$request_data = $_GET;
-		} elseif ($this->method == 'POST' && count($_POST)) {
+		} elseif ($this->action == 'GET') {
+			$request_data = $_GET;
+		} elseif ($this->action == 'POST' && count($_POST)) {
 			$request_data = $_POST;
 		} else {
 			$request_data = json_decode(file_get_contents("php://input"), true);
@@ -162,7 +206,7 @@ class API {
 		return true;
 	}
 
-	private function createAndReturnModel() 
+	private function createAndReturnFormattedModel() 
 	{
 		$this->max_id_used += 1;
 
@@ -173,7 +217,7 @@ class API {
 
 		$this->data_changed = true;
 
-		return $this->collection[$max_id_used];
+		return $this->formatModelAttributesForReturn($this->collection[$max_id_used]);
 	}
 
 	private function updateModel($index) 
@@ -192,6 +236,47 @@ class API {
 		$this->data_changed = true;
 	}
 
+	private function formatModelAttributesForReturn($model) 
+	{
+		foreach ($model['results'] as &$result) {
+			$result['votedFor'] = in_array($this->ip, $result['votes']);
+
+			$result['votes'] = count($result['votes']);
+		}
+
+		return $model;
+	}
+
+	private function castVote($index) 
+	{
+		$can_vote 	= true;
+		$model 		= $this->collection[$index];
+
+		foreach ($model['results'] as $result) {
+			if (in_array($this->ip, $result['votes'])) {
+				$can_vote = false;
+				
+				break;
+			}
+		}
+
+		if ($can_vote) {
+			foreach ($model['results'] as &$result) {
+				if ($result['choiceId'] == $this->request['choiceId']) {
+					$result['votes'][] = $this->ip;
+				}
+			}
+
+			$this->collection[$index] = $model;
+
+			$this->data_changed = true;
+		}
+
+		return array(
+			'success' => $can_vote
+		);
+	}
+
 	private function findModelIndexByID($id) 
 	{
 		foreach($this->collection as $index => $model) {
@@ -202,6 +287,10 @@ class API {
 
 		return -1;
 	}
+
+	////////////////////
+	// CRUD Endpoints //
+	////////////////////
 
 	private function handleRequest__GET_collection()
 	{
@@ -225,7 +314,7 @@ class API {
 	    if ($index >= 0) {
 	    	$this->setResponseStatus(self::OK);
 
-	    	$this->response_body = $this->collection[$index];
+	    	$this->response_body = $this->formatModelAttributesForReturn($this->collection[$index]);
 	    } else {
 	    	$this->setResponseStatus(self::NOT_FOUND);
 	    }
@@ -235,7 +324,7 @@ class API {
 	{
 		$this->setResponseStatus(self::OK);
 
-		$this->response_body = $this->createAndReturnModel();
+		$this->response_body = $this->createAndReturnFormattedModel();
 	}
 
 	private function handleRequest__PUT() 
@@ -262,6 +351,23 @@ class API {
         } else {
         	$this->setResponseStatus(self::NOT_FOUND);
         }
+	}
+
+	/////////////////////
+	// Other Endpoints //
+	/////////////////////
+
+	private function handleRequest__VOTE()
+	{
+		$index = $this->findModelIndexByID($this->request['id']);
+
+	    if ($index >= 0) {
+	    	$this->setResponseStatus(self::OK);
+
+	    	$this->response_body = $this->castVote($index);
+	    } else {
+	    	$this->setResponseStatus(self::NOT_FOUND);
+	    }
 	}
 }
 
