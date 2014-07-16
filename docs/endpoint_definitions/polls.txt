@@ -1,0 +1,44 @@
+** ip=connectionIp is required as a get parameter for all requests ** 
+
+/polls (GET)
+
+	Used to get a list of polls. Returns 200 on success and 500 when there was a server error.
+
+	Example response:
+
+	[{
+		"id": 1,
+		"title": "First Poll",
+		"creator": {
+			"id": 1,
+			"username": "RandyIsDaBomb",
+			"avatar": "http://lorempixel.com/400/200/"
+		},
+		"startDate": "1404469751",
+		"endDate": "1410776951"
+	},
+	{
+		"id": 2,
+		"title": "Second Poll",
+		"creator": {
+			"id": 1,
+			"username": "RandyIsDaBomb",
+			"avatar": "http://www.placecage.com/c/75/75"
+		},
+		"startDate": "1404469751",
+		"endDate": "1410776951"
+	},{
+
+	...
+
+	},{
+		"id": N,
+		"title": "N'th Poll",
+		"creator": {
+			"id": 1,
+			"username": "RandyIsDaBomb",
+			"avatar": "http://www.placecage.com/c/75/75"
+		},
+		"startDate": "1404469751",
+		"endDate": "1410776951"
+	}]

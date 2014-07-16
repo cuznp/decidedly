@@ -1,0 +1,93 @@
+** ip=connectionIp is required as a get parameter for all requests ** 
+
+/poll/{id} (GET)
+
+	Used to get the contents of a poll. Endpoint should return the full poll. Returns 200 on success, 404
+	when poll could not be found and 500 when there was a server error.
+
+	Example responses:
+
+	1) When voting is still open and the requestor has not yet voted:
+	
+	{
+		"id": 1,
+		"title": "First Poll",
+		"description": "Vote for one of them already!",
+		"choices": [{
+				"id": 1,
+				"title": "Foo",
+				"src": "http://lorempixel.com/400/200/people"
+			}, {
+				"id": 2,
+				"title": "Super Cool Option 2",
+				"src": "http://lorempixel.com/400/200/city"
+			}, {
+				"id": 3,
+				"title": "OMGSAUCE",
+				"src": "http://lorempixel.com/400/200/sports"
+		}],
+		"results": [],
+		"creator": {
+			"id": 1,
+			"username": "RandyIsDaBomb",
+			"avatar": "http://lorempixel.com/400/200/"
+		},
+		"startDate": "1404469751",
+		"endDate": "1410776951"
+	}
+
+	2) When requestor as already voted or poll is closed:
+	
+	{
+		"id": 1,
+		"title": "First Poll",
+		"description": "Vote for one of them already!",
+		"choices": [{
+				"id": 1,
+				"title": "Foo",
+				"src": "http://lorempixel.com/400/200/people"
+			}, {
+				"id": 2,
+				"title": "Super Cool Option 2",
+				"src": "http://lorempixel.com/400/200/city"
+			}, {
+				"id": 3,
+				"title": "OMGSAUCE",
+				"src": "http://lorempixel.com/400/200/sports"
+		}],
+		"results": [{
+				"choiceId": 1,
+				"votes": 3,
+				"votedFor": true
+			}, {
+				"choiceId": 2,
+				"votes": 4,
+				"votedFor": false
+			}, {
+				"choiceId": 3,
+				"votes": 3,
+				"votedFor": false
+		}],
+		"creator": {
+			"id": 1,
+			"username": "RandyIsDaBomb",
+			"avatar": "http://lorempixel.com/400/200/"
+		},
+		"startDate": "1404469751",
+		"endDate": "1410776951"
+	}
+
+/poll/{id} (POST)
+
+	Used to create a new poll. Payload should NOT contain the attributes of the poll to be created
+	but NOT a poll {id}. The endpoint should return the full poll as in /poll/{id} (GET). Returns 200 on success, 404
+	when poll could not be found and 500 when there was a server error.
+
+/poll/{id} (PUT)
+
+	Used to update the contents of a poll with id {id}. Payload should contain the poll {id} and
+	any values wich should be updated. The endpoint should return the full poll as in /poll/{id} (GET). Returns 200 on success, 404 when poll could nto be found and 500 when there was a server error.
+
+/poll/{id} (DELETE)
+
+	Used to delete a poll from the backend. Returns 200 on success, 404 when poll could nto be found and 500 when there was a server error.

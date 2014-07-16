@@ -1,0 +1,22 @@
+** ip=connectionIp is required as a get parameter for all requests ** 
+
+/poll/{pollId}/vote/{choiceId}
+
+	Used to cast a vote for choice with {choiceId} which is part of poll with {pollId}. Returns 200 on success, 404
+	when poll and/or choice could nto be found and 500 when there was a server error.
+
+	Example responses:
+
+	1) Successfull vote
+
+	{
+		success: true,
+		errorMessage: ""
+	}
+
+	2) Unsuccessfull vote
+
+	{
+		success: false,
+		errorMessage: "Something happened"
+	}

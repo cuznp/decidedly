@@ -25,7 +25,7 @@ class API {
 
 		$this->response_body = array();
 
-		$this->data_path = dirname(__FILE__) . '/json/polls.json';
+		$this->data_path = dirname(__FILE__) . '/json/polls-datasource.json';
 
 		$this->setServerAction();
 
