@@ -16,15 +16,31 @@ require.config({
         },
         babysitter: {
             deps: ['backbone', 'underscore']
+        },
+        jqplot: {
+            deps: ['jquery']  
+        },
+        barRenderer: {
+            deps: ['jqplot']
+        },
+        categoryAxisRenderer: {
+            deps: ['jqplot']
+        },
+        pointLabels: {
+            deps: ['jqplot']
         }
     },
     paths: {
         text: '../libs/requirejs-text/text',
+        jqplot: '../libs/jqplot/jquery.jqplot',
         jquery: '../libs/jquery/dist/jquery',
         backbone: '../libs/backbone/backbone',
         underscore: '../libs/underscore/underscore',
         bootstrap: '../libs/sass-bootstrap/dist/js/bootstrap',
-        babysitter: '../libs/backbone.babysitter/lib/backbone.babysitter'
+        babysitter: '../libs/backbone.babysitter/lib/backbone.babysitter',
+        barRenderer: '../libs/jqplot/plugins/jqplot.barRenderer',
+        pointLabels: '../libs/jqplot/plugins/jqplot.pointLabels',
+        categoryAxisRenderer: '../libs/jqplot/plugins/jqplot.categoryAxisRenderer'
     }
 });
 

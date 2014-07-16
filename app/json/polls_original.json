@@ -1,337 +1,138 @@
 {
-	"max_id_used": 9,
-	"collection": [{
-		"id": 1,
-		"title": "First Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		},{
-			"id": 3,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/sports"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		},{
-			"choiceId": 3,
-			"votes": 72,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://lorempixel.com/400/200/"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	},{
-		"id": 2,
-		"title": "Second Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://www.placecage.com/c/75/75"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	},{
-		"id": 3,
-		"title": "Third Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		},{
-			"id": 3,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/sports"
-		},{
-			"id": 4,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/cats"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		},{
-			"choiceId": 3,
-			"votes": 72,
-			"votedFor": false
-		},{
-			"choiceId": 4,
-			"votes": 106,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://www.placecage.com/c/75/75"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	},{
-		"id": 4,
-		"title": "Forth Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		},{
-			"id": 3,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/sports"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		},{
-			"choiceId": 3,
-			"votes": 72,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://www.placecage.com/c/75/75"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	},{
-		"id": 5,
-		"title": "Fifth Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		},{
-			"id": 3,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/sports"
-		},{
-			"id": 4,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/cats"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		},{
-			"choiceId": 3,
-			"votes": 72,
-			"votedFor": false
-		},{
-			"choiceId": 4,
-			"votes": 106,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://www.placecage.com/c/75/75"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	},{
-		"id": 6,
-		"title": "Sixth Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://www.placecage.com/c/75/75"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	},{
-		"id": 7,
-		"title": "Seventh Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		},{
-			"id": 3,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/sports"
-		},{
-			"id": 4,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/cats"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		},{
-			"choiceId": 3,
-			"votes": 72,
-			"votedFor": false
-		},{
-			"choiceId": 4,
-			"votes": 106,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://www.placecage.com/c/75/75"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	},{
-		"id": 8,
-		"title": "Eighth Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		},{
-			"id": 3,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/sports"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		},{
-			"choiceId": 3,
-			"votes": 72,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://www.placecage.com/c/75/75"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	},{
-		"id": 9,
-		"title": "Ninth Poll",
-		"description": "Vote for one of them already mother fucker!",
-		"choices": [{
-			"id": 1,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/people"
-		},{
-			"id": 2,
-			"title": "What this option is",
-			"src": "http://lorempixel.com/400/200/city"
-		}],
-		"results": [{
-			"choiceId": 1,
-			"votes": 10,
-			"votedFor": true
-		},{
-			"choiceId": 2,
-			"votes": 40,
-			"votedFor": false
-		}],
-		"creator": {
-			"id": 1,
-			"username": "RandyIsDaBomb",
-			"avatar": "http://www.placecage.com/c/75/75"
-		},
-		"startDate": "1404469751",
-		"endDate": "1410776951"
-	}]
+    "max_id_used": 3,
+    "collection": [{
+        "id": 1,
+        "title": "First Poll",
+        "description": "Vote for one of them already mother fucker!",
+        "choices": [
+            {
+                "id": 1,
+                "title": "Foo",
+                "src": "http://lorempixel.com/400/200/people"
+            },
+            {
+                "id": 2,
+                "title": "Super Cool Option 2",
+                "src": "http://lorempixel.com/400/200/city"
+            },
+            {
+                "id": 3,
+                "title": "OMGSAUCE",
+                "src": "http://lorempixel.com/400/200/sports"
+            }
+        ],
+        "results": [
+            {
+                "choiceId": 1,
+                "votes": [
+                    "123.123.123.123"
+                ]
+            },
+            {
+                "choiceId": 2,
+                "votes": []
+            },
+            {
+                "choiceId": 3,
+                "votes": [
+                    "172.7.16.35"
+                ]
+            }
+        ],
+        "creator": {
+            "id": 1,
+            "username": "RandyIsDaBomb",
+            "avatar": "http://lorempixel.com/400/200/"
+        },
+        "startDate": "1404469751",
+        "endDate": "1410776951"
+    },
+    {
+        "id": 2,
+        "title": "Second Poll",
+        "description": "Vote for one of them already mother fucker!",
+        "choices": [
+            {
+                "id": 1,
+                "title": "What this option is",
+                "src": "http://lorempixel.com/400/200/people"
+            },
+            {
+                "id": 2,
+                "title": "What this option is",
+                "src": "http://lorempixel.com/400/200/city"
+            }
+        ],
+        "results": [
+            {
+                "choiceId": 1,
+                "votes": []
+            },
+            {
+                "choiceId": 2,
+                "votes": []
+            }
+        ],
+        "creator": {
+            "id": 1,
+            "username": "RandyIsDaBomb",
+            "avatar": "http://www.placecage.com/c/75/75"
+        },
+        "startDate": "1404469751",
+        "endDate": "1410776951"
+    },
+    {
+        "id": 3,
+        "title": "Third Poll",
+        "description": "Vote for one of them already mother fucker!",
+        "choices": [
+            {
+                "id": 1,
+                "title": "What this option is",
+                "src": "http://lorempixel.com/400/200/people"
+            },
+            {
+                "id": 2,
+                "title": "What this option is",
+                "src": "http://lorempixel.com/400/200/city"
+            },
+            {
+                "id": 3,
+                "title": "What this option is",
+                "src": "http://lorempixel.com/400/200/sports"
+            },
+            {
+                "id": 4,
+                "title": "What this option is",
+                "src": "http://lorempixel.com/400/200/cats"
+            }
+        ],
+        "results": [
+            {
+                "choiceId": 1,
+                "votes": []
+            },
+            {
+                "choiceId": 2,
+                "votes": []
+            },
+            {
+                "choiceId": 3,
+                "votes": []
+            },
+            {
+                "choiceId": 4,
+                "votes": [
+                    "172.7.16.35"
+                ]
+            }
+        ],
+        "creator": {
+            "id": 1,
+            "username": "RandyIsDaBomb",
+            "avatar": "http://www.placecage.com/c/75/75"
+        },
+        "startDate": "1404469751",
+        "endDate": "1410776951"
+    }]
 }

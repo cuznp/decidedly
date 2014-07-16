@@ -7,6 +7,10 @@
 			<li id="<%= choice.id %>"><div class="click-target"></div><img src="<%= choice.src %>"/></li>
 		<% }); %>
 	</ol>
+	<div class="results-wrapper">
+		<h2>Poll Results</h2>
+		<div id="results-graph"></div>
+	</div>
 	<button type="button" class="cast-vote btn btn-primary btn-lg btn-block">Cast vote</button>
 	<button type="button" class="back btn btn-primary btn-lg btn-block">Back to Polls</button>
 	<div class="error" style="display:none;">Please select an option above</div>

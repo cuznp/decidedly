@@ -241,6 +241,7 @@ class API {
 	private function formatModelAttributesForReturn($model) 
 	{	
 		$voted = false;
+		$closed = time() >= $model['endDate'];
 
 		foreach ($model['results'] as $result) {
 			if (in_array($this->ip, $result['votes'])) {
@@ -250,7 +251,7 @@ class API {
 			}
 		}
 
-		if ($voted) {
+		if ($voted || $closed) {
 			foreach ($model['results'] as &$result) {
 				$result['votedFor'] = in_array($this->ip, $result['votes']);
 

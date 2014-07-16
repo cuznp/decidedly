@@ -1,7 +1,11 @@
 define([
     'underscore',
     'views/shared/base',
-    'text!templates/public/poll.html'
+    'text!templates/public/poll.html',
+    'jqplot',
+    'barRenderer',
+    'pointLabels',
+    'categoryAxisRenderer'
 ], function (
     _,
     BaseView,
@@ -37,19 +41,54 @@ define([
         },
 
         render: function () {
-            BaseView.prototype.render.apply(this, arguments);
+            var that = this;
 
-            this.updatePrimaryButton();
+            BaseView.prototype.render.apply(that, arguments);
 
-            if (this.model.get('results').length) {
-                this.renderResults();
-            }
+            that.updateVotingStatus();
 
-            return this;
+            that.renderResults();
+
+            return that;
         },
 
         renderResults: function () {
-            // TODO: Implement rendering of results
+            var choices, ticks, resultsData,
+                results = this.model.get('results');
+
+            this.$('.results-wrapper').toggle(results.length > 0);
+
+            if (this.resultsPlot) {
+                this.resultsPlot.destroy();
+            }
+
+            if (results.length) {
+                choices = this.model.get('choices');
+
+                resultsData = _(results).pluck('votes');
+
+                this.resultsPlot = $.jqplot('results-graph', [resultsData], {
+                    seriesDefaults: {
+                        renderer:$.jqplot.BarRenderer,
+                        shadowAngle: 135,
+                        rendererOptions: {
+                            barDirection: 'horizontal'
+                        },
+                        pointLabels: { 
+                            show: true
+                        }
+                    },
+                    axes: {
+                        yaxis: {
+                            ticks: _(choices).pluck('title'),
+                            renderer: $.jqplot.CategoryAxisRenderer
+                        },
+                        xaxis: {
+                            showTicks: false
+                        }
+                    }
+                });
+            }            
         },
 
         handleChangeOfModel: function (viewModel, currentPage) {
@@ -72,8 +111,22 @@ define([
             }
         },
 
-        updatePrimaryButton: function () {
-            var that = this;
+        updateVotingStatus: function () {
+            var votedChoiceId,
+                that = this,
+                results = that.model.get('results');
+
+            if (results.length) {
+                _(results).each(function (result) {
+                    if (result.votedFor === true) {
+                        votedChoiceId = result.choiceId;
+                    } 
+                })
+
+                if (votedChoiceId) {
+                    that.$el.find('#' + votedChoiceId).addClass('active');    
+                }
+            }
 
             that.$el.find('.cast-vote').toggle(that.model.get('results').length === 0);
 
@@ -101,21 +154,21 @@ define([
     	castVote: function () {
     		var that = this,
                 $votingErrorMessage = that.$el.find('.error');
-                url = '/api-polls.php?ip=' + window.connectionIp + '&action=vote&id=' + this.model.get('id') + '&choiceId=' +  this.model.get('chosenOptionId');
 
             if (!that.model.has('chosenOptionId')) {
                 $votingErrorMessage.show();
             } 
             else {
                 $.ajax({
-                    url: url,
+                    url: '/api-polls.php?ip=' + window.connectionIp + '&action=vote&id=' + that.model.get('id') + '&choiceId=' +  that.model.get('chosenOptionId'),
                     success: function (response) {
                         if (response.success) {
                             $.when(
                                 that.model.fetch()
                             ).done(function () {
-                                // TODO: Use that.renderResults() instead of render to just render the results to page
-                                that.render();
+                                that.renderResults();
+
+                                that.updateVotingStatus();
                             })
                         } 
                         else {
