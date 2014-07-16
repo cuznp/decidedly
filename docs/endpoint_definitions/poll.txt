@@ -1,4 +1,9 @@
-** ip=connectionIp is required as a get parameter for all requests ** 
+/**
+ * General Info:
+ *	- All endpoints return data in JSON format
+ *	- All endpoints should repond with a 400 if not all requires params are present
+ *	- ip=connectionIp is required as a get parameter for all requests 
+ */
 
 /poll/{id} (GET)
 
@@ -36,7 +41,7 @@
 		"endDate": "1410776951"
 	}
 
-	2) When requestor as already voted or poll is closed:
+	2) When requestor has already voted or poll is closed:
 	
 	{
 		"id": 1,
@@ -79,14 +84,14 @@
 
 /poll/{id} (POST)
 
-	Used to create a new poll. Payload should NOT contain the attributes of the poll to be created
+	Used to create a new poll. Payload should contain the attributes of the poll to be created
 	but NOT a poll {id}. The endpoint should return the full poll as in /poll/{id} (GET). Returns 200 on success, 404
 	when poll could not be found and 500 when there was a server error.
 
 /poll/{id} (PUT)
 
 	Used to update the contents of a poll with id {id}. Payload should contain the poll {id} and
-	any values wich should be updated. The endpoint should return the full poll as in /poll/{id} (GET). Returns 200 on success, 404 when poll could nto be found and 500 when there was a server error.
+	any values wich should be updated. The endpoint should return the full poll as in /poll/{id} (GET). Returns 200 on success, 404 when poll could not be found and 500 when there was a server error.
 
 /poll/{id} (DELETE)
 

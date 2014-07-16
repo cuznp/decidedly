@@ -1,9 +1,14 @@
-** ip=connectionIp is required as a get parameter for all requests ** 
+/**
+ * General Info:
+ *	- All endpoints return data in JSON format
+ *	- All endpoints should repond with a 400 if not all requires params are present
+ *	- ip=connectionIp is required as a get parameter for all requests 
+ */
 
 /poll/{pollId}/vote/{choiceId}
 
 	Used to cast a vote for choice with {choiceId} which is part of poll with {pollId}. Returns 200 on success, 404
-	when poll and/or choice could nto be found and 500 when there was a server error.
+	when poll and/or choice could not be found and 500 when there was a server error.
 
 	Example responses:
 

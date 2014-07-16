@@ -1,4 +1,9 @@
-** ip=connectionIp is required as a get parameter for all requests ** 
+/**
+ * General Info:
+ *	- All endpoints return data in JSON format
+ *	- All endpoints should repond with a 400 if not all requires params are present
+ *	- ip=connectionIp is required as a get parameter for all requests 
+ */
 
 /polls (GET)
 
