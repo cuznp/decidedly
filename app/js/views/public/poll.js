@@ -30,14 +30,24 @@ define([
     	},
 
     	templateData: function () {
-            var deadline = new Date(),
+            var deadline, deadlineMessage,
+                pollClosed = this.model.get('results').length > 0,
                 templateData = BaseView.prototype.templateData.apply(this, arguments);
 
-            deadline.setTime(this.model.get('endDate') * 1000);
+            if (pollClosed) {
+                deadlineMessage = 'Voting has ended';
+            } 
+            else {
+                deadline = new Date();
 
-            templateData.deadline = deadline.toDateString();
+                deadline.setTime(this.model.get('endDate') * 1000);
 
-            return templateData;        
+                deadlineMessage = 'Voting ends on: ' + deadline.toDateString();
+            }
+
+            templateData.deadlineMessage = deadlineMessage; 
+
+            return templateData;
         },
 
         render: function () {
