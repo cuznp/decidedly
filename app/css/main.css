@@ -47,6 +47,20 @@ html, body {
 	padding-top: 10px;
 }
 
+#login-button {
+	float: right;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	margin-right: 10px;
+	margin-top: 10px;
+	border: 1px solid #d1d1d1;
+	outline: none;
+	border:none !important;
+	box-shadow:none !important;
+}
+
 .search {
 	background: url(./img/search-white.png) no-repeat 10px 6px #f1f5f7;
 	border: 1px solid #d1d1d1;
