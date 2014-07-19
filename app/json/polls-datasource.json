@@ -3,7 +3,7 @@
     "collection": [{
         "id": 1,
         "title": "First Poll",
-        "description": "Vote for one of them already mother fucker!",
+        "description": "Vote for one of them already my friend!",
         "choices": [{
             "id": 1,
             "title": "Foo",
@@ -55,7 +55,7 @@
     {
         "id": 2,
         "title": "Second Poll",
-        "description": "Vote for one of them already mother fucker!",
+        "description": "Vote for one of them already my friend!",
         "choices": [{
             "id": 1,
             "title": "What this option is",
@@ -85,7 +85,7 @@
     {
         "id": 3,
         "title": "Third Poll",
-        "description": "Vote for one of them already mother fucker!",
+        "description": "Vote for one of them already my friend!",
         "choices": [{
             "id": 1,
             "title": "What this option is",
